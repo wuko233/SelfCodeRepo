@@ -1,0 +1,29 @@
+*.exe
+*.bin
+*.out
+
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.pid
+*.seed
+
+node_modules/    # Node.js
+__pycache__/     # Python
+venv/            # Python虚拟环境
+*.pyc            # Python字节码
+.env             # 环境变量文件
+dist/            # 构建输出目录
+build/           # 编译构建目录
+
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
