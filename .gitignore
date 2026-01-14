@@ -27,3 +27,4 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+.vscode/tasks.json
