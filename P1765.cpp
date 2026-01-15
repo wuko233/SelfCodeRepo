@@ -1,8 +1,6 @@
 #include <iostream>
 #include <unordered_map>
 #include <string>
-#include <unordered_set>
-#include <vector>
 
 using namespace std;
 
@@ -11,21 +9,15 @@ int main() {
     getline(cin, line);
 
     int cnt = 0;
+    
+    unordered_map<char, int> keyboard = {
+        {'a',1}, {'b',2}, {'c',3}, {'d',1}, {'e',2}, {'f',3}, {'g',1}, {'h',2}, {'i',3},
+        {'j',1}, {'k',2}, {'l',3}, {'m',1}, {'n',2}, {'o',3}, {'p',1}, {'q',2}, {'r',3},
+        {'s',4}, {'t',1}, {'u',2}, {'v',3}, {'w',1}, {'x',2}, {'y',3}, {'z',4}, {' ',1}
+    };
 
-    vector<vector<char>> keyboard;
-    keyboard.push_back({'a', 'd', 'g', 'j', 'm', 'p', 't', 'w', ' '});
-    keyboard.push_back({'b', 'e', 'h', 'k', 'n', 'q', 'u', 'x'});
-    keyboard.push_back({'c', 'f', 'i', 'l', 'o', 'r', 'v', 'y'});
-    keyboard.push_back({'s', 'z'});
-
-    for (char ch: line) {
-        for (int i = 0; i < keyboard.size(); i++) {
-            for (int j = 0; j < keyboard[i].size(); j++) {
-                if (keyboard[i][j] == ch) {
-                    cnt += i + 1;
-                }
-            }
-        }
+    for (char c : line) {
+        cnt += keyboard[c];
     }
 
     cout << cnt << endl;
