@@ -73,7 +73,6 @@ int main() {
     if (ans == m + 1) {
         cout << "0" << endl;
     } else {
-        cout << -1 << endl;
         cout << ans + 1 << endl;
     }
 
