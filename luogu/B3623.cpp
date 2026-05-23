@@ -1,28 +1,31 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-int main() {
-    int n, k;
-    cin >> n >> k;
+int n, k;
+int path[15];
+int used[15];
 
-    vector<int> path;
-    vector<bool> used(n + 1, false);
-
-    auto dfs = [used, path, &k](int depth) {
-        if (depth == k) {
-            for (int i = 0; i < k; ++i) {
-                cout << path[i] << " ";
-            }
-            cout << endl;
+void dfs(int step) {
+    if (step == k) {
+        for (int i = 0; i < k; i++) {
+            cout << path[i] << ' ';
         }
+        cout << endl;
+        return;
+    }
 
-        for (int i = 1; i <= n; ++i) {
-            if (!used[i]) {
-                used[i] = true;
-                path.push_back(i);
-            }
+    for (int i = 1; i <= n; i++) {
+        if (!used[i]) {
+            used[i] = 1;
+            path[step] = i;
+            dfs(step + 1);
+            used[i] = 0;
         }
     }
+}
+
+int main() {
+    cin >> n >> k;
+    dfs(0);
 }
